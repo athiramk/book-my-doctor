@@ -1,0 +1,20 @@
+{
+ "AppType": "Web App",
+ "AppName": "book-my-doctor",
+ "GroupID": "com.athiramk",
+ "ArtifactID": "bookmydoctor",
+ "AppVersion": "1.0.0",
+ "BasePackage": "com.athiramk.bookmydoctor",
+ "BuildTool": "Maven",
+ "PersistenceType": "Spring Data JPA",
+ "DbType": "PostgreSQL",
+ "DbMigrationTool": "Flyway",
+ "SpringCloudAWSSupport": false,
+ "ThymeleafSupport": true,
+ "HTMXSupport": true,
+ "EmailSupport": false,
+ "RabbitMQSupport": false,
+ "RedisCachingSupport": false,
+ "OpenTelemetrySupport": false,
+ "K8sSupport": false
+}

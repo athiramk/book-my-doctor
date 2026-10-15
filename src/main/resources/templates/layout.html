@@ -36,31 +36,33 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
             <div class="flex items-center">
-                <a th:href="@{/}" class="text-white text-xl font-bold">book-my-doctor</a>
+                <a th:href="@{/}" class="text-white text-lg font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-stethoscope text-sky-400 text-xl"></i>
+                    <span>Book My Doctor</span>
+                    <span class="text-xs font-normal text-slate-300 hidden sm:inline-block border-l border-slate-600 pl-2">ക്ലിനിക്ക് ടോക്കൺ ബുക്കിംഗ്</span>
+                </a>
             </div>
             <div class="hidden md:block">
                 <div class="ml-4 flex items-center md:ml-6 space-x-4">
                     <div sec:authorize="isAnonymous()">
-                        <a th:href="@{/login}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                            <i class="fas fa-sign-in-alt"></i> Login
-                        </a>
-                        <a th:href="@{/registration}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                            <i class="fas fa-user-plus"></i> Register
+                        <a th:href="@{/login}" class="text-slate-300 hover:bg-slate-700 hover:text-white px-3 py-1.5 rounded-md text-xs font-medium flex items-center gap-1.5 border border-slate-600">
+                            <i class="fa-solid fa-user-doctor text-sky-400"></i> Doctor Portal
                         </a>
                     </div>
                     <div sec:authorize="isAuthenticated()" class="relative">
-                        <button type="button" onclick="toggleUserDropdown()" id="user-menu-button" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium flex items-center">
-                            <i class="fas fa-user mr-2"></i>
-                            <i class="fas fa-chevron-down ml-2"></i>
+                        <button type="button" onclick="toggleUserDropdown()" id="user-menu-button" class="text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium flex items-center gap-2">
+                            <i class="fa-solid fa-user-doctor text-sky-400"></i>
+                            <span>Dr. Mathew</span>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
                         </button>
-                        <div id="user-dropdown" class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5">
-                            <a th:href="@{/dashboard}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
+                        <div id="user-dropdown" class="hidden absolute right-0 z-10 mt-2 w-52 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5">
+                            <a th:href="@{/doctor/queue}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-tachometer-alt mr-2 text-sky-600"></i> Doctor Queue
                             </a>
                             <hr class="my-1 border-gray-200">
                             <form method="post" th:action="@{/logout}">
                                 <button type="submit" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                    <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                                    <i class="fas fa-sign-out-alt mr-2 text-rose-500"></i> Logout
                                 </button>
                             </form>
                         </div>
@@ -77,17 +79,17 @@
     <div class="md:hidden hidden" id="mobile-menu">
         <div class="space-y-1 px-2 pb-3 pt-2">
             <div sec:authorize="isAnonymous()">
-                <a th:href="@{/login}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-                    <i class="fas fa-sign-in-alt"></i> Login
-                </a>
-                <a th:href="@{/registration}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-                    <i class="fas fa-user-plus"></i> Register
+                <a th:href="@{/login}" class="text-slate-300 hover:bg-slate-700 hover:text-white block px-3 py-2 rounded-md text-sm font-medium flex items-center gap-2">
+                    <i class="fa-solid fa-user-doctor text-sky-400"></i> Doctor Portal / ലോഗിൻ
                 </a>
             </div>
             <div sec:authorize="isAuthenticated()">
+                <a th:href="@{/doctor/queue}" class="text-slate-200 hover:bg-slate-700 hover:text-white block px-3 py-2 rounded-md text-sm font-medium">
+                    <i class="fas fa-tachometer-alt mr-2 text-sky-400"></i> Doctor Queue
+                </a>
                 <form method="post" th:action="@{/logout}">
-                    <button type="submit" class="text-gray-300 hover:bg-gray-700 hover:text-white w-full text-left px-3 py-2 rounded-md text-base font-medium">
-                        <i class="fas fa-sign-out-alt"></i> Logout
+                    <button type="submit" class="text-slate-300 hover:bg-slate-700 hover:text-white w-full text-left px-3 py-2 rounded-md text-sm font-medium">
+                        <i class="fas fa-sign-out-alt mr-2 text-rose-400"></i> Logout
                     </button>
                 </form>
             </div>

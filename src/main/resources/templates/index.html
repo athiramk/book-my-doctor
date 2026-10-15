@@ -4,9 +4,77 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout}">
+<head>
+    <title>Book My Doctor - ക്ലിനിക്ക് ടോക്കൺ ബുക്കിംഗ്</title>
+</head>
 <body>
 <div layout:fragment="content">
-    <h1>Welcome</h1>
+    <div class="max-w-3xl mx-auto space-y-6">
+        <!-- Clinic & Doctor Header Card -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="bg-gradient-to-r from-sky-800 to-indigo-900 px-6 py-6 text-white flex flex-col sm:flex-row items-center sm:items-start gap-5">
+                <div class="w-20 h-20 rounded-2xl bg-white/10 ring-2 ring-white/20 flex items-center justify-center text-3xl shrink-0">
+                    <i class="fa-solid fa-user-doctor text-sky-300"></i>
+                </div>
+                <div class="text-center sm:text-left space-y-1">
+                    <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
+                        ന്യൂറോളജി ക്ലിനിക്ക് / Neurology Clinic
+                    </span>
+                    <h1 class="text-2xl font-bold">Dr. Mathew</h1>
+                    <p class="text-sky-200 text-sm">MD, DM (Neurology) — Senior Neurologist</p>
+                    <p class="text-slate-300 text-xs flex items-center justify-center sm:justify-start gap-1.5 pt-1">
+                        <i class="fa-solid fa-location-dot text-rose-400"></i>
+                        <span>Village Clinic, Near Town Hall</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Clinic Schedule Info Bar -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-slate-100 bg-slate-50 border-t border-slate-100 text-sm">
+                <div class="p-4 flex items-center gap-3">
+                    <i class="fa-regular fa-calendar-days text-sky-600 text-xl"></i>
+                    <div>
+                        <div class="text-xs text-slate-500 font-medium">ക്ലിനിക്ക് ദിവസങ്ങൾ / Clinic Days</div>
+                        <div class="font-semibold text-slate-800">തിങ്കൾ, ബുധൻ, വെള്ളി (Mon, Wed, Fri)</div>
+                    </div>
+                </div>
+                <div class="p-4 flex items-center gap-3">
+                    <i class="fa-regular fa-clock text-sky-600 text-xl"></i>
+                    <div>
+                        <div class="text-xs text-slate-500 font-medium">സമയം / Timings</div>
+                        <div class="font-semibold text-slate-800">7:30 PM – 9:30 PM (8 ടോക്കണുകൾ)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Frictionless Patient Guidance Notice -->
+        <div class="rounded-xl border border-sky-200 bg-sky-50/70 p-4 text-sky-950">
+            <div class="flex items-start gap-3">
+                <i class="fa-solid fa-mobile-screen-button text-sky-600 text-lg mt-0.5"></i>
+                <div class="text-xs space-y-1">
+                    <p class="font-bold text-sm text-sky-900">രജിസ്ട്രേഷനോ പാസ്‌വേഡോ ആവശ്യമില്ല (No Login or Account Needed)</p>
+                    <p class="text-sky-800">
+                        രോഗികൾക്കും കുടുംബാംഗങ്ങൾക്കും നേരിട്ട് മൊബൈൽ നമ്പർ നൽകി ടോക്കൺ ബുക്ക് ചെയ്യാം. ടോക്കൺ വിവരങ്ങളും ലൈവ് ക്യൂ ലിങ്കും നിങ്ങളുടെ WhatsApp നമ്പറിലേക്ക് ലഭിക്കുന്നതാണ്.
+                    </p>
+                    <p class="text-slate-600 text-[11px] pt-1">
+                        Patients can directly book using their WhatsApp mobile number. Tokens open at 6:00 PM the evening before clinic days.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Token Booking Placeholder (Step 4 preview) -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 text-center space-y-3">
+            <div class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-slate-100 text-slate-500 text-xl">
+                <i class="fa-solid fa-ticket"></i>
+            </div>
+            <h2 class="text-lg font-bold text-slate-800">ഇന്നത്തെ ടോക്കണുകൾ (Today's Tokens)</h2>
+            <p class="text-sm text-slate-500 max-w-md mx-auto">
+                ടോക്കൺ ബുക്കിംഗ് സ്ക്രീനും ലൈവ് ക്യൂ ട്രാക്കിംഗും അടുത്ത ഘട്ടത്തിൽ (Step 4) പൂർണ്ണമായി സജ്ജമാകും.
+            </p>
+        </div>
+    </div>
 </div>
 </body>
 </html>

@@ -18,26 +18,29 @@ class WebSecurityConfig {
         "/favicon.ico",
         "/actuator/health/**",
         "/actuator/info/**",
-        "/error",
-        "/login",
-        "/registration"
+        "/error"
+    };
+
+    private static final String[] PUBLIC_PAGES = {"/", "/book/**", "/queue/**", "/cancel/**", "/login", "/registration"
     };
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) {
-        String[] unsecuredPaths = {
-            "/login",
-        };
         http.securityMatcher("/**");
 
         http.authorizeHttpRequests(r -> r.requestMatchers(PUBLIC_RESOURCES)
                 .permitAll()
-                .requestMatchers(unsecuredPaths)
+                .requestMatchers(PUBLIC_PAGES)
                 .permitAll()
+                .requestMatchers("/doctor/**")
+                .authenticated()
                 .anyRequest()
                 .authenticated());
 
-        http.formLogin(formLogin -> formLogin.loginPage("/login").permitAll());
+        http.formLogin(formLogin -> formLogin
+                .loginPage("/login")
+                .defaultSuccessUrl("/doctor/queue", false)
+                .permitAll());
 
         http.logout(logout -> logout.logoutRequestMatcher(PathPatternRequestMatcher.pathPattern("/logout"))
                 .logoutSuccessUrl("/")
